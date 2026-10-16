@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="حمادي ستور">
+<meta name="creator" content="حمادي ستور">
+<meta name="publisher" content="حمادي ستور">
+<meta name="description" content="الميري ستور - متجر خدمات وشحن ألعاب وحسابات رقمية في ليبيا.">
+<meta name="contact" content="0946678902">
+<meta property="og:site_name" content="الميري ستور">
+<meta property="og:title" content="الميري ستور | خدمات رقمية">
+<meta property="og:description" content="الميري ستور - متجر خدمات وشحن ألعاب وحسابات رقمية.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>الميري ستور | خدمات رقمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090313;
+  --bg2:#12051e;
+  --panel:#13091e;
+  --panel2:#190b29;
+  --line:rgba(194,82,255,.24);
+  --purple:#9b00ff;
+  --purple2:#c12cff;
+  --text:#fff;
+  --muted:#b9acbf;
+  --success:#58e49a;
+  --shadow:0 25px 70px rgba(122,0,255,.20);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Cairo,Almarai,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% 5%,rgba(151,0,255,.22),transparent 30%),
+    radial-gradient(circle at 10% 45%,rgba(79,0,160,.18),transparent 25%),
+    linear-gradient(180deg,#07020d,#0c0315 45%,#07020d);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:radial-gradient(rgba(255,255,255,.12) .7px,transparent .7px);
+  background-size:28px 28px;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.container{width:min(1120px,calc(100% - 30px));margin:auto}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  height:78px;
+  background:rgba(8,2,14,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(180,75,255,.16);
+}
+.nav{height:100%;display:flex;align-items:center;gap:12px}
+.logo{
+  display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;
+  margin-left:auto;
+}
+.logo-mark{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#e15cff,#6800ff);
+  box-shadow:0 0 30px rgba(174,0,255,.4);
+  font-size:21px;
+}
+.nav-actions{display:flex;gap:9px;align-items:center}
+.icon-btn{
+  width:48px;height:48px;border:1px solid rgba(218,116,255,.22);
+  border-radius:16px;background:rgba(22,10,34,.8);color:#fff;
+  display:grid;place-items:center;font-size:21px;
+  transition:.25s;
+}
+.icon-btn:hover{transform:translateY(-2px);border-color:#b02cff;box-shadow:0 0 25px rgba(160,0,255,.2)}
+.lang{width:auto;padding:0 14px;display:flex;gap:8px;align-items:center}
+.flag{font-size:19px}
+.search{font-size:22px}
+.menu{font-size:25px}
+
+/* side drawer */
+.drawer{
+  position:fixed;inset:0;z-index:100;visibility:hidden;
+}
+.drawer .shade{position:absolute;inset:0;background:rgba(0,0,0,.68);opacity:0;transition:.25s}
+.drawer-panel{
+  position:absolute;right:0;top:0;height:100%;width:min(355px,88vw);
+  background:linear-gradient(180deg,#12071c,#08030e);
+  border-left:1px solid rgba(198,77,255,.25);
+  transform:translateX(105%);transition:.3s;padding:24px 20px;
+  overflow:auto;
+}
+.drawer.open{visibility:visible}
+.drawer.open .shade{opacity:1}
+.drawer.open .drawer-panel{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}
+.close{border:0;background:none;color:white;font-size:27px}
+.menu-list{display:grid;gap:4px}
+.menu-list a{
+  padding:15px 13px;border-radius:14px;color:#ddd2e3;font-size:17px;
+  transition:.2s;border:1px solid transparent;
+}
+.menu-list a:hover,.menu-list a.active{
+  background:linear-gradient(90deg,rgba(151,0,255,.14),rgba(151,0,255,.03));
+  border-color:rgba(183,66,255,.13);color:#fff;
+}
+
+/* hero */
+.hero{padding:32px 0 18px}
+.hero-card{
+  min-height:530px;border-radius:38px;position:relative;overflow:hidden;
+  border:1px solid rgba(194,68,255,.42);
+  background:
+    radial-gradient(circle at 50% 35%,rgba(184,0,255,.30),transparent 40%),
+    linear-gradient(135deg,#19082b,#090311 72%);
+  box-shadow:var(--shadow),inset 0 0 70px rgba(105,0,150,.13);
+}
+.hero-card:before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 17% 18%,rgba(255,255,255,.12) 0 1px,transparent 2px),
+    radial-gradient(circle at 78% 25%,rgba(255,255,255,.14) 0 1px,transparent 2px),
+    radial-gradient(circle at 60% 80%,rgba(255,255,255,.1) 0 1px,transparent 2px);
+  background-size:170px 150px,210px 180px,190px 170px;opacity:.5;
+}
+.hero-art{
+  position:absolute;inset:0;opacity:.82;
+  background:
+    radial-gradient(ellipse at 20% 46%,rgba(143,39,255,.52),transparent 22%),
+    radial-gradient(ellipse at 77% 38%,rgba(93,12,173,.55),transparent 24%),
+    linear-gradient(120deg,transparent 20%,rgba(196,66,255,.12),transparent 48%);
+}
+.character{
+  position:absolute;bottom:0;width:190px;height:310px;filter:drop-shadow(0 15px 30px rgba(0,0,0,.7));
+  opacity:.82;
+}
+.character:before{
+  content:"";position:absolute;left:35px;top:28px;width:120px;height:120px;border-radius:48% 52% 45% 55%;
+  background:linear-gradient(145deg,#d8c4ec,#705081);
+  box-shadow:inset -22px -15px 25px rgba(50,15,73,.55);
+}
+.character:after{
+  content:"";position:absolute;left:12px;right:12px;bottom:0;height:220px;
+  border-radius:55px 55px 12px 12px;
+  background:linear-gradient(140deg,#322048,#0a0710 65%);
+  box-shadow:inset 15px 0 30px rgba(190,50,255,.18);
+}
+.c1{left:3%;transform:rotate(-5deg)}
+.c2{right:2%;transform:scaleX(-1) rotate(-4deg)}
+.c3{left:34%;width:220px;opacity:.62;transform:scale(.86)}
+.crown{
+  position:absolute;right:28px;top:16px;font-size:34px;filter:drop-shadow(0 0 12px #c32aff)
+}
+.hero-content{
+  position:relative;z-index:2;min-height:530px;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;text-align:center;padding:45px 24px 42px;
+  background:linear-gradient(180deg,transparent 25%,rgba(6,1,12,.18) 55%,rgba(6,1,12,.78) 100%);
+}
+.eyebrow{
+  padding:7px 14px;border:1px solid rgba(220,110,255,.25);border-radius:999px;
+  background:rgba(92,0,128,.18);color:#e9d7f2;font-size:13px;margin-bottom:14px
+}
+.hero h1{font-size:clamp(27px,5vw,48px);line-height:1.25;font-weight:800;margin-bottom:12px}
+.hero h1 span{color:#d45bff}
+.hero p{max-width:650px;color:#f1e9f4;font-size:clamp(15px,2vw,19px);line-height:1.9}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.btn{
+  min-width:205px;padding:14px 22px;border-radius:999px;border:1px solid rgba(220,115,255,.32);
+  display:flex;align-items:center;justify-content:center;gap:9px;font-weight:800;transition:.25s
+}
+.btn-primary{
+  background:linear-gradient(135deg,#b400ff,#7a00ff);
+  box-shadow:0 12px 35px rgba(150,0,255,.36);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 45px rgba(174,0,255,.5)}
+.btn-secondary{background:rgba(7,4,13,.75);color:#fff}
+.btn-secondary:hover{transform:translateY(-3px);border-color:#bd48ff}
+
+/* ticker */
+.ticker{
+  margin:18px 0 10px;border:1px solid rgba(192,73,255,.18);border-radius:18px;
+  background:rgba(21,8,31,.68);padding:12px 15px;overflow:hidden
+}
+.ticker-track{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;color:#d8cadc;font-size:13px}
+.ticker b{color:#f2d7ff}
+
+/* sections */
+.section{padding:42px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
+.section-head h2{font-size:25px}
+.section-head p{color:var(--muted);font-size:13px;margin-top:4px}
+.see{color:#ce61ff;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  background:linear-gradient(145deg,rgba(27,11,40,.92),rgba(11,5,18,.94));
+  border:1px solid rgba(198,75,255,.17);border-radius:23px;padding:18px;
+  box-shadow:0 14px 45px rgba(0,0,0,.22);transition:.25s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(202,76,255,.4);box-shadow:0 18px 55px rgba(112,0,180,.2)}
+.card-icon{
+  width:58px;height:58px;border-radius:18px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#8c00e9,#2b0b43);font-size:28px;margin-bottom:13px
+}
+.card h3{font-size:18px;margin-bottom:5px}
+.card p{font-size:13px;color:var(--muted);line-height:1.8}
+.price{margin-top:12px;color:#f0b6ff;font-weight:800}
+
+/* accounts */
+.account-grid{grid-template-columns:repeat(3,1fr)}
+.account{
+  overflow:hidden;padding:0;position:relative
+}
+.account-img{
+  height:175px;position:relative;
+  background:
+    radial-gradient(circle at 65% 35%,rgba(226,90,255,.55),transparent 20%),
+    linear-gradient(135deg,#31105b,#0c0513 72%);
+}
+.account-img:before,.account-img:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(1px);
+  background:linear-gradient(145deg,#d9c7e7,#64377c);opacity:.85
+}
+.account-img:before{width:92px;height:110px;right:23%;top:22px}
+.account-img:after{width:72px;height:96px;left:18%;top:42px}
+.account-body{padding:15px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}
+.tag{font-size:11px;padding:4px 8px;border-radius:999px;background:rgba(154,0,255,.12);border:1px solid rgba(192,77,255,.17);color:#dfc7e7}
+.account-foot{display:flex;align-items:center;justify-content:space-between;margin-top:13px}
+.account-price{font-size:19px;font-weight:800}
+.small-btn{padding:8px 13px;border-radius:12px;background:#7e00e9;border:0;color:#fff;font-weight:700}
+
+/* footer */
+footer{padding:40px 0 90px;border-top:1px solid rgba(194,75,255,.12);margin-top:25px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+.footer-title{font-size:20px;font-weight:800;margin-bottom:10px}
+.footer p,.footer a{color:var(--muted);font-size:13px;line-height:2}
+.bottom-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:rgba(10,3,17,.93);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(190,70,255,.2);padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+}
+.bottom-nav a{flex:1;text-align:center;color:#b9adbf;font-size:10px}
+.bottom-nav .bn-icon{font-size:20px;display:block;line-height:1.2;margin-bottom:2px}
+.bottom-nav a.active{color:#e39aff}
+
+/* responsive */
+@media(max-width:800px){
+  .grid,.account-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-card,.hero-content{min-height:500px}
+  .character{transform:scale(.78);transform-origin:bottom}
+  .c2{transform:scaleX(-1) scale(.78)}
+  .c3{transform:scale(.68)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  header{height:70px}
+  .container{width:min(100% - 18px,520px)}
+  .nav{gap:7px}
+  .logo{font-size:17px}
+  .logo-mark{width:38px;height:38px;border-radius:12px}
+  .icon-btn{width:43px;height:43px;border-radius:14px}
+  .lang{display:none}
+  .hero{padding-top:14px}
+  .hero-card{border-radius:30px;min-height:560px}
+  .hero-content{min-height:560px;padding:30px 17px 28px}
+  .character{opacity:.56;transform:scale(.62)}
+  .c2{transform:scaleX(-1) scale(.62)}
+  .c3{transform:scale(.52)}
+  .hero h1{font-size:27px}
+  .hero p{font-size:14px}
+  .cta-row{width:100%}
+  .btn{width:100%;min-width:0}
+  .ticker-track{justify-content:flex-start;flex-wrap:nowrap;width:max-content;animation:move 18s linear infinite}
+  @keyframes move{to{transform:translateX(-35%)}}
+  .section{padding:28px 0}
+  .grid,.account-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:13px;border-radius:18px}
+  .card-icon{width:48px;height:48px;border-radius:15px;font-size:23px}
+  .card h3{font-size:15px}
+  .card p{font-size:11px}
+  .account-img{height:125px}
+  .account-body{padding:11px}
+  .account h3{font-size:14px}
+  .account-price{font-size:16px}
+  .small-btn{font-size:11px;padding:7px 9px}
+  .footer-grid{grid-template-columns:1fr}
+  footer{padding-bottom:90px}
+  .bottom-nav{display:flex}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"الميري ستور",
+  "description":"متجر خدمات وشحن ألعاب وحسابات رقمية في ليبيا",
+  "creator":{
+    "@type":"Person",
+    "name":"حمادي ستور",
+    "telephone":"0946678902"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"حمادي ستور",
+    "telephone":"0946678902"
+  }
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="nav-actions">
+      <button class="icon-btn menu" id="menuBtn" aria-label="القائمة">☰</button>
+      <button class="icon-btn search" aria-label="بحث">⌕</button>
+      <button class="icon-btn lang" aria-label="اللغة"><span class="flag">🇱🇾</span><span>العربية</span></button>
+    </div>
+    <a class="logo" href="#">
+      <span>الميري ستور</span>
+      <span class="logo-mark">♢</span>
+    </a>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="shade" id="shade"></div>
+  <aside class="drawer-panel">
+    <div class="drawer-head">
+      <strong style="font-size:20px">القائمة</strong>
+      <button class="close" id="closeBtn">×</button>
+    </div>
+    <nav class="menu-list">
+      <a class="active" href="#home">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#accounts">سوق الحسابات</a>
+      <a href="#codes">الأكواد</a>
+      <a href="#members">العضويات</a>
+      <a href="#calculator">حاسبة الأسعار</a>
+      <a href="#offers">العروض</a>
+      <a href="#wheel">عجلة الحظ</a>
+      <a href="#guarantee">ضمان المبيعات</a>
+      <a href="#installments">التقسيط والتبديل</a>
+      <a href="#payment">طرق الدفع</a>
+      <a href="#reviews">آراء عملائنا</a>
+    </nav>
+  </aside>
+</div>
+
+<main id="home">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-art"></div>
+        <div class="character c1"><span class="crown">✦</span></div>
+        <div class="character c2"></div>
+        <div class="character c3"></div>
+        <div class="hero-content">
+          <div class="eyebrow">🇱🇾 متجر رقمي ليبي • سريع وموثوق</div>
+          <h1>خدماتك الرقمية كلها هنا:<br><span>بيع وشراء حسابات</span>، شحن جميع ألعابك</h1>
+          <p>كل احتياجك الرقمي في مكان واحد — شحن ألعاب، حسابات موثقة، أكواد وخدمات رقمية بأسلوب بسيط وآمن.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://wa.me/" target="_blank">اشحن الآن عبر الواتساب <span>♢</span></a>
+            <a class="btn btn-secondary" href="#accounts">استعرض الحسابات المتاحة <span>♢</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker">
+        <div class="ticker-track">
+          <span>⚡ <b>تسليم سريع</b></span>
+          <span>🛡️ <b>ضمان ومراجعة</b></span>
+          <span>🇱🇾 <b>الدفع بالدينار الليبي</b></span>
+          <span>💬 <b>دعم عبر واتساب</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>خدماتنا الرقمية</h2><p>كل ما تحتاجه في مكان واحد</p></div>
+        <a class="see" href="#accounts">عرض الكل ←</a>
+      </div>
+      <div class="grid">
+        <article class="card" id="codes"><div class="card-icon">🎮</div><h3>شحن الألعاب</h3><p>شحن سريع لألعابك المفضلة مع اختيار الباقة والسعر.</p><div class="price">ابدأ الطلب ←</div></article>
+        <article class="card"><div class="card-icon">🛒</div><h3>سوق الحسابات</h3><p>حسابات ألعاب معروضة للبيع بعد مراجعة البيانات والصور.</p><div class="price">تصفح الحسابات ←</div></article>
+        <article class="card"><div class="card-icon">🎟️</div><h3>الأكواد</h3><p>أكواد وخدمات رقمية يتم تسليمها حسب المنتج المتاح.</p><div class="price">شاهد الأكواد ←</div></article>
+        <article class="card" id="members"><div class="card-icon">👑</div><h3>العضويات</h3><p>عروض وعضويات رقمية مميزة حسب اللعبة والمنصة.</p><div class="price">استكشف ←</div></article>
+        <article class="card" id="calculator"><div class="card-icon">🧮</div><h3>حاسبة الأسعار</h3><p>احسب قيمة الرصيد والتحويلات بسرعة قبل تنفيذ طلبك.</p><div class="price">احسب الآن ←</div></article>
+        <article class="card" id="offers"><div class="card-icon">🔥</div><h3>العروض</h3><p>تابع الخصومات والعروض المحدودة قبل انتهائها.</p><div class="price">شاهد العروض ←</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="accounts">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>الحسابات المعروضة</h2><p>حسابات تمت مراجعتها قبل العرض</p></div>
+        <a class="see" href="#">كل الحسابات ←</a>
+      </div>
+      <div class="grid account-grid">
+        <article class="card account">
+          <div class="account-img"></div>
+          <div class="account-body">
+            <h3>حساب Free Fire مميز</h3>
+            <div class="tags"><span class="tag">فري فاير</span><span class="tag">موثق</span></div>
+            <div class="account-foot"><span class="account-price">550 د.ل</span><button class="small-btn">التفاصيل</button></div>
+          </div>
+        </article>
+        <article class="card account">
+          <div class="account-img"></div>
+          <div class="account-body">
+            <h3>حساب PUBG قوي</h3>
+            <div class="tags"><span class="tag">PUBG</span><span class="tag">مميز</span></div>
+            <div class="account-foot"><span class="account-price">700 د.ل</span><button class="small-btn">التفاصيل</button></div>
+          </div>
+        </article>
+        <article class="card account">
+          <div class="account-img"></div>
+          <div class="account-body">
+            <h3>حساب ألعاب متنوع</h3>
+            <div class="tags"><span class="tag">متعدد</span><span class="tag">مراجع</span></div>
+            <div class="account-foot"><span class="account-price">480 د.ل</span><button class="small-btn">التفاصيل</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="guarantee">
+    <div class="container">
+      <div class="section-head"><div><h2>لماذا الميري ستور؟</h2><p>تجربة أوضح وأسرع للعميل</p></div></div>
+      <div class="grid">
+        <article class="card"><div class="card-icon">🛡️</div><h3>ضمان المبيعات</h3><p>مراجعة الطلبات والحسابات مع توضيح حالة العملية.</p></article>
+        <article class="card" id="payment"><div class="card-icon">💳</div><h3>طرق دفع مرنة</h3><p>إظهار وسائل الدفع المتاحة للعميل قبل تأكيد الطلب.</p></article>
+        <article class="card" id="reviews"><div class="card-icon">⭐</div><h3>آراء العملاء</h3><p>تقييمات تساعد العملاء على اتخاذ قرار أفضل.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="wheel">
+    <div class="container">
+      <div class="card" style="text-align:center;padding:28px">
+        <div style="font-size:35px">🎁</div>
+        <h2 style="margin:8px 0">عروض ومكافآت قادمة</h2>
+        <p style="color:var(--muted);font-size:13px">يمكن إضافة عجلة الحظ، كوبونات الخصم، ونظام النقاط من لوحة الإدارة.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-title">الميري ستور 🇱🇾</div><div style="margin-top:8px;font-size:11px;color:#a99daf">البرمجة والتطوير: حمادي ستور · 0946678902</div>
+      <p>منصة للخدمات الرقمية وشحن الألعاب وبيع الحسابات، بتصميم عصري وتجربة مناسبة للهاتف.</p>
+    </div>
+    <div>
+      <div class="footer-title">روابط</div>
+      <a href="#home">الرئيسية</a><br><a href="#accounts">سوق الحسابات</a><br><a href="#offers">العروض</a>
+    </div>
+    <div>
+      <div class="footer-title">الدعم</div>
+      <p>واتساب<br>متابعة الطلبات<br>الأسئلة الشائعة</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a class="active" href="#home"><span class="bn-icon">⌂</span>الرئيسية</a>
+  <a href="#accounts"><span class="bn-icon">🛒</span>الحسابات</a>
+  <a href="#offers"><span class="bn-icon">🔥</span>العروض</a>
+  <a href="#payment"><span class="bn-icon">⚙</span>الإعدادات</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/*
+  الميري ستور + Supabase
+  ضع بيانات مشروعك هنا:
+  1) SUPABASE_URL = رابط مشروعك
+  2) SUPABASE_ANON_KEY = المفتاح العام (anon/publishable key)
+*/
+const SUPABASE_URL = "ضع_رابط_مشروع_سوبابيز_هنا";
+const SUPABASE_ANON_KEY = "ضع_المفتاح_العام_هنا";
+
+const supabaseReady =
+  SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_URL.includes("ضع_") &&
+  !SUPABASE_ANON_KEY.includes("ضع_");
+
+const supabaseClient = supabaseReady
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
+async function loadAccountsFromSupabase() {
+  if (!supabaseClient) return;
+
+  const { data, error } = await supabaseClient
+    .from("accounts")
+    .select("id,title,game,price,image_url,status,created_at")
+    .eq("status", "available")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Supabase accounts error:", error.message);
+    return;
+  }
+
+  const grid = document.querySelector(".account-grid");
+  if (!grid || !data) return;
+
+  grid.innerHTML = data.map(account => `
+    <article class="card account">
+      <div class="account-img" style="${account.image_url ? `background-image:url('${account.image_url}');background-size:cover;background-position:center` : ''}"></div>
+      <div class="account-body">
+        <h3>${escapeHtml(account.title || "حساب ألعاب")}</h3>
+        <div class="tags">
+          <span class="tag">${escapeHtml(account.game || "لعبة")}</span>
+          <span class="tag">مراجَع</span>
+        </div>
+        <div class="account-foot">
+          <span class="account-price">${Number(account.price || 0).toLocaleString("ar-LY")} د.ل</span>
+          <button class="small-btn" onclick="openAccount('${account.id}')">التفاصيل</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+async function openAccount(id) {
+  if (!supabaseClient) {
+    alert("اربط بيانات Supabase أولاً.");
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("accounts")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    alert("تعذر جلب بيانات الحساب.");
+    return;
+  }
+
+  alert(`${data.title || "الحساب"}\nالسعر: ${data.price} د.ل\nاللعبة: ${data.game || "-"}`);
+}
+
+async function getCurrentUser() {
+  if (!supabaseClient) return null;
+  const { data } = await supabaseClient.auth.getUser();
+  return data?.user || null;
+}
+
+const drawer=document.getElementById('drawer');
+document.getElementById('menuBtn').onclick=()=>drawer.classList.add('open');
+document.getElementById('closeBtn').onclick=()=>drawer.classList.remove('open');
+document.getElementById('shade').onclick=()=>drawer.classList.remove('open');
+document.querySelectorAll('.menu-list a').forEach(a=>a.onclick=()=>drawer.classList.remove('open'));
+// تحميل الحسابات من Supabase عند فتح الصفحة
+document.addEventListener("DOMContentLoaded", loadAccountsFromSupabase);
+</script>
+</body>
+</html>document.getElementById('drawer');
+document.getElementById('menuBtn').onclick=()=>drawer.classList.add('open');
+document.getElementById('closeBtn').onclick=()=>drawer.classList.remove('open');
+document.getElementById('shade').onclick=()=>drawer.classList.remove('open');
+document.querySelectorAll('.menu-list a').forEach(a=>a.onclick=()=>drawer.classList.remove('open'));
+// تحميل الحسابات من Supabase عند فتح الصفحة
+document.addEventListener("DOMContentLoaded", loadAccountsFromSupabase);
+</script>
+</body>
+</html>
