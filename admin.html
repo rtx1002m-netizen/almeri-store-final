@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="حمادي ستور"><meta name="creator" content="حمادي ستور"><meta name="contact" content="0946678902"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>الميري ستور | لوحة الإدارة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08030d;--panel:#12081a;--panel2:#190b25;--line:#2b1738;--p:#9b00ff;--p2:#c62fff;--text:#fff;--muted:#a99daf;--ok:#36d98a;--warn:#ffbe55;--danger:#ff5875}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Cairo,sans-serif;background:radial-gradient(circle at 80% 0,#280043,transparent 28%),var(--bg);color:var(--text);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:270px;position:fixed;right:0;top:0;bottom:0;background:rgba(12,4,18,.96);border-left:1px solid var(--line);padding:20px 14px;z-index:30;overflow:auto}.brand{display:flex;gap:10px;align-items:center;padding:8px 8px 22px;border-bottom:1px solid var(--line);margin-bottom:12px}.brand-mark{width:43px;height:43px;border-radius:14px;background:linear-gradient(145deg,#d34cff,#7000ff);display:grid;place-items:center;font-size:21px;box-shadow:0 0 28px #8500ff55}.brand b{font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px}.nav{display:grid;gap:5px}.nav button{border:1px solid transparent;background:transparent;color:#c7bacd;text-align:right;padding:12px 13px;border-radius:13px}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#9b00ff22,transparent);border-color:#9b00ff25;color:#fff}.main{width:calc(100% - 270px);margin-right:270px;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}.top h1{font-size:25px}.top p{color:var(--muted);font-size:12px}.top-actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:var(--panel);color:#fff;padding:10px 15px;border-radius:12px}.btn.primary{background:linear-gradient(135deg,#ad00ff,#7200ff);border:0}.btn.danger{background:#ff58751a;color:#ff8da1;border-color:#ff587533}.section{display:none}.section.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat,.box{background:linear-gradient(145deg,#160a20,#0e0615);border:1px solid var(--line);border-radius:18px;padding:17px}.stat small{color:var(--muted)}.stat strong{font-size:27px;display:block;margin-top:5px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}.toolbar h2{font-size:20px}.search{background:#0e0615;border:1px solid var(--line);border-radius:11px;color:#fff;padding:10px 12px;min-width:220px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:700px}.table th,.table td{padding:12px 9px;border-bottom:1px solid #24132e;text-align:right;font-size:13px}.table th{color:#c7b6ce;font-weight:600}.pill{padding:4px 9px;border-radius:999px;font-size:10px;background:#ffffff0d}.pill.ok{color:#61e9a3;background:#36d98a16}.pill.warn{color:#ffd078;background:#ffbe5518}.pill.danger{color:#ff8da1;background:#ff587516}.actions{display:flex;gap:5px;flex-wrap:wrap}.mini{padding:6px 9px;border-radius:9px;border:1px solid var(--line);background:#160a20;color:#fff;font-size:11px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#cbbdce}.field input,.field textarea,.field select{width:100%;background:#0c0512;border:1px solid #2d1838;border-radius:11px;color:#fff;padding:11px;outline:0}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#a82cff}.savebar{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.modal{position:fixed;inset:0;background:#000b;z-index:100;display:none;place-items:center;padding:15px}.modal.open{display:grid}.modal-card{width:min(650px,100%);max-height:90vh;overflow:auto;background:#110719;border:1px solid #3a1b4b;border-radius:20px;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.close{border:0;background:transparent;color:#fff;font-size:25px}.toast{position:fixed;left:18px;bottom:18px;background:#171020;border:1px solid #3a2047;padding:12px 15px;border-radius:12px;display:none;z-index:200}.toast.show{display:block}.mobile-menu{display:none}
+@media(max-width:900px){.sidebar{transform:translateX(105%);transition:.25s}.sidebar.open{transform:none}.main{width:100%;margin:0;padding:16px}.mobile-menu{display:block}.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.top h1{font-size:20px}.stats{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.cards{grid-template-columns:1fr}.search{min-width:160px;width:100%}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">♢</div><div><b>الميري ستور</b><small>لوحة التحكم</small></div></div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">📊 الرئيسية</button>
+    <button data-page="site">🎨 شكل ومحتوى الموقع</button>
+    <button data-page="games">🎮 الألعاب</button>
+    <button data-page="packages">💎 الباقات والأسعار</button>
+    <button data-page="accounts">🛒 الحسابات</button>
+    <button data-page="orders">📦 الطلبات</button>
+    <button data-page="offers">🔥 العروض</button>
+    <button data-page="payments">💳 طرق الدفع</button>
+    <button data-page="reviews">⭐ التقييمات</button>
+    <button data-page="members">👑 العضويات</button>
+    <button data-page="admins">👥 المشرفون</button>
+    <button data-page="settings">⚙️ الإعدادات</button>
+  </nav>
+</aside>
+
+<main class="main">
+  <div class="top">
+    <div><button class="btn mobile-menu" id="menu">☰</button><h1 id="pageTitle">لوحة الإدارة</h1><p>تحكم كامل بمحتوى الميري ستور</p></div>
+    <div class="top-actions"><button class="btn" id="refresh">↻ تحديث</button><button class="btn danger" id="logout">تسجيل الخروج</button></div>
+  </div>
+
+  <section class="section active" id="dashboard">
+    <div class="stats">
+      <div class="stat"><small>الحسابات</small><strong id="sAccounts">—</strong></div>
+      <div class="stat"><small>الطلبات</small><strong id="sOrders">—</strong></div>
+      <div class="stat"><small>الألعاب</small><strong id="sGames">—</strong></div>
+      <div class="stat"><small>طلبات قيد المراجعة</small><strong id="sPending">—</strong></div>
+    </div>
+    <div class="box"><div class="toolbar"><h2>آخر الطلبات</h2><button class="btn primary" onclick="go('orders')">إدارة الطلبات</button></div><div class="table-wrap"><table class="table"><tbody id="latestOrders"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="site">
+    <div class="box">
+      <div class="toolbar"><h2>محتوى الموقع وشكله</h2></div>
+      <div class="form-grid">
+        <div class="field"><label>اسم المتجر</label><input id="store_name"></div>
+        <div class="field"><label>شعار/نص قصير</label><input id="tagline"></div>
+        <div class="field full"><label>عنوان الواجهة الرئيسية</label><input id="hero_title"></div>
+        <div class="field full"><label>وصف الواجهة</label><textarea id="hero_description"></textarea></div>
+        <div class="field"><label>رقم واتساب</label><input id="whatsapp"></div>
+        <div class="field"><label>اللون الرئيسي</label><input id="primary_color" placeholder="#9b00ff"></div>
+        <div class="field"><label>رابط صورة الشعار</label><input id="logo_url"></div>
+        <div class="field"><label>رابط صورة الواجهة</label><input id="hero_image_url"></div>
+        <div class="field"><label>نص زر الشحن</label><input id="cta_text"></div>
+        <div class="field"><label>نص زر الحسابات</label><input id="accounts_cta"></div>
+        <div class="field full"><label>رسالة أسفل الواجهة</label><textarea id="footer_text"></textarea></div>
+      </div>
+      <div class="savebar"><button class="btn primary" onclick="saveSite()">حفظ التغييرات</button></div>
+    </div>
+  </section>
+
+  <section class="section" id="games">
+    <div class="box"><div class="toolbar"><h2>الألعاب</h2><button class="btn primary" onclick="openGame()">+ إضافة لعبة</button></div><div class="table-wrap"><table class="table"><thead><tr><th>اللعبة</th><th>الرابط</th><th>الظهور</th><th>إجراءات</th></tr></thead><tbody id="gamesTable"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="packages">
+    <div class="box"><div class="toolbar"><h2>الباقات والأسعار</h2><button class="btn primary" onclick="openPackage()">+ إضافة باقة</button></div><div class="table-wrap"><table class="table"><thead><tr><th>الباقة</th><th>اللعبة</th><th>القيمة</th><th>السعر</th><th>الظهور</th><th>إجراءات</th></tr></thead><tbody id="packagesTable"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="accounts">
+    <div class="box"><div class="toolbar"><h2>الحسابات</h2><input class="search" id="accountSearch" placeholder="بحث..."><button class="btn primary" onclick="openAccount()">+ إضافة حساب</button></div><div class="table-wrap"><table class="table"><thead><tr><th>الحساب</th><th>اللعبة</th><th>السعر</th><th>الحالة</th><th>مميز</th><th>إجراءات</th></tr></thead><tbody id="accountsTable"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="orders">
+    <div class="box"><div class="toolbar"><h2>إدارة الطلبات</h2><input class="search" id="orderSearch" placeholder="بحث برقم الطلب أو ID"></div><div class="table-wrap"><table class="table"><thead><tr><th>رقم الطلب</th><th>اللعبة</th><th>الباقة</th><th>السعر</th><th>الحالة</th><th>التاريخ</th><th>إجراءات</th></tr></thead><tbody id="ordersTable"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="offers"><div class="box"><div class="toolbar"><h2>العروض</h2><button class="btn primary" onclick="openOffer()">+ إضافة عرض</button></div><div class="table-wrap"><table class="table"><thead><tr><th>العنوان</th><th>الوصف</th><th>الخصم</th><th>نشط</th><th>إجراءات</th></tr></thead><tbody id="offersTable"></tbody></table></div></div></section>
+  <section class="section" id="payments"><div class="box"><div class="toolbar"><h2>طرق الدفع</h2><button class="btn primary" onclick="openPayment()">+ إضافة طريقة</button></div><div class="table-wrap"><table class="table"><thead><tr><th>الطريقة</th><th>الرقم/المعرف</th><th>نشطة</th><th>إجراءات</th></tr></thead><tbody id="paymentsTable"></tbody></table></div></div></section>
+  <section class="section" id="reviews"><div class="box"><div class="toolbar"><h2>التقييمات</h2></div><div class="table-wrap"><table class="table"><thead><tr><th>العميل</th><th>التقييم</th><th>التعليق</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="reviewsTable"></tbody></table></div></div></section>
+  <section class="section" id="members"><div class="box"><div class="toolbar"><h2>العضويات</h2><button class="btn primary" onclick="openMember()">+ إضافة عضوية</button></div><div class="table-wrap"><table class="table"><thead><tr><th>الاسم</th><th>السعر</th><th>المدة</th><th>نشطة</th><th>إجراءات</th></tr></thead><tbody id="membersTable"></tbody></table></div></div></section>
+  <section class="section" id="admins"><div class="box"><div class="toolbar"><h2>المشرفون</h2><button class="btn primary" onclick="openAdmin()">+ إضافة مشرف</button></div><p style="color:var(--muted);font-size:12px">إضافة المستخدمين تتم عبر حسابات Supabase Auth، ثم يتم تحديد صلاحياتهم من هنا.</p><div class="table-wrap"><table class="table"><thead><tr><th>البريد</th><th>الدور</th><th>الحالة</th><th>إجراءات</th></tr></thead><tbody id="adminsTable"></tbody></table></div></div></section>
+  <section class="section" id="settings"><div class="box"><div class="toolbar"><h2>إعدادات متقدمة</h2></div><div class="form-grid"><div class="field"><label>عنوان الموقع</label><input id="meta_title"></div><div class="field"><label>رسالة حقوق النشر</label><input id="copyright"></div><div class="field full"><label>رسالة الصيانة (اختياري)</label><textarea id="maintenance_message"></textarea></div></div><div class="savebar"><button class="btn primary" onclick="saveAdvanced()">حفظ</button></div></div></section>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modal-card"><div class="modal-head"><h2 id="modalTitle">إضافة</h2><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://bbhtaxvnodilhuaampcs.supabase.co";
+const SUPABASE_ANON_KEY="PUT_YOUR_ANON_KEY_HERE";
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+let cache={games:[],packages:[],accounts:[],orders:[],offers:[],payments:[],reviews:[],members:[],admins:[]};
+
+const $=id=>document.getElementById(id);
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2500)}
+function go(page){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));$(page).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('pageTitle').textContent=document.querySelector(`[data-page="${page}"]`).textContent.replace(/^[^ ]+ /,'');if(innerWidth<901)$('sidebar').classList.remove('open');if(page!=='dashboard')loadPage(page)}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.page));
+$('menu').onclick=()=>$('sidebar').classList.toggle('open');
+$('refresh').onclick=()=>loadPage(document.querySelector('.section.active').id);
+$('logout').onclick=async()=>{await sb.auth.signOut();location.reload()};
+
+async function ensureAdmin(){
+  const {data:{user}}=await sb.auth.getUser();
+  if(!user){location.href='admin-login.html';return false}
+  const {data,error}=await sb.from('admin_users').select('*').eq('user_id',user.id).eq('active',true).single();
+  if(error||!data){document.body.innerHTML='<div style="display:grid;place-items:center;min-height:100vh;font-family:Cairo;color:white;background:#08030d"><div style="text-align:center"><h2>لا تملك صلاحية الدخول</h2><p style="color:#aaa">هذا الحساب ليس مشرفاً معتمداً.</p></div></div>';return false}
+  return true;
+}
+async function count(table){const {count}=await sb.from(table).select('*',{count:'exact',head:true});return count||0}
+async function loadDashboard(){let [a,o,g,p]=await Promise.all([count('accounts'),count('orders'),count('games'),count('orders')]);$('sAccounts').textContent=a;$('sOrders').textContent=o;$('sGames').textContent=g;const {count:pending}=await sb.from('orders').select('*',{count:'exact',head:true}).in('status',['pending','reviewing','processing']);$('sPending').textContent=pending||0;const {data}=await sb.from('orders').select('*').order('created_at',{ascending:false}).limit(8);$('latestOrders').innerHTML=(data||[]).map(orderRow).join('')}
+function orderRow(o){return `<tr><td>${o.order_number||o.id?.slice(0,8)}</td><td>${o.game||'-'}</td><td>${o.package_name||'-'}</td><td>${o.price||0} د.ل</td><td>${statusPill(o.status)}</td><td>${o.created_at?new Date(o.created_at).toLocaleDateString('ar-LY'):'-'}</td><td><button class="mini" onclick="editOrder('${o.id}')">تعديل</button></td></tr>`}
+function statusPill(s){let c=['completed','paid','approved','available'].includes(s)?'ok':['cancelled','rejected','sold'].includes(s)?'danger':'warn';return `<span class="pill ${c}">${s||'-'}</span>`}
+async function loadGames(){const {data,error}=await sb.from('games').select('*').order('created_at',{ascending:false});cache.games=data||[];if(error){toast(error.message);return}$('gamesTable').innerHTML=cache.games.map(g=>`<tr><td>${g.name}</td><td>${g.slug||'-'}</td><td>${g.visible?'نعم':'لا'}</td><td class="actions"><button class="mini" onclick="openGame('${g.id}')">تعديل</button><button class="mini" onclick="del('games','${g.id}')">حذف</button></td></tr>`).join('')}
+async function loadPackages(){const {data}=await sb.from('packages').select('*,games(name)').order('created_at',{ascending:false});cache.packages=data||[];$('packagesTable').innerHTML=cache.packages.map(p=>`<tr><td>${p.name}</td><td>${p.games?.name||p.game_id||'-'}</td><td>${p.amount||'-'}</td><td>${p.price} د.ل</td><td>${p.visible?'نعم':'لا'}</td><td class="actions"><button class="mini" onclick="openPackage('${p.id}')">تعديل</button><button class="mini" onclick="del('packages','${p.id}')">حذف</button></td></tr>`).join('')}
+async function loadAccounts(){const {data}=await sb.from('accounts').select('*').order('created_at',{ascending:false});cache.accounts=data||[];$('accountsTable').innerHTML=cache.accounts.map(a=>`<tr><td>${a.title}</td><td>${a.game}</td><td>${a.price} د.ل</td><td>${statusPill(a.status)}</td><td>${a.featured?'نعم':'لا'}</td><td class="actions"><button class="mini" onclick="openAccount('${a.id}')">تعديل</button><button class="mini" onclick="del('accounts','${a.id}')">حذف</button></td></tr>`).join('')}
+async function loadOrders(){const {data}=await sb.from('orders').select('*').order('created_at',{ascending:false});cache.orders=data||[];$('ordersTable').innerHTML=cache.orders.map(orderRow).join('')}
+async function loadGeneric(table,el,cols,openFn){const {data}=await sb.from(table).select('*').order('created_at',{ascending:false});cache[table]=data||[];$(el).innerHTML=cache[table].map(x=>`<tr>${cols(x)}<td class="actions"><button class="mini" onclick="${openFn}('${x.id}')">تعديل</button><button class="mini" onclick="del('${table}','${x.id}')">حذف</button></td></tr>`).join('')}
+async function loadPage(p){if(p==='dashboard')return loadDashboard();if(p==='site')return loadSite();if(p==='games')return loadGames();if(p==='packages')return loadPackages();if(p==='accounts')return loadAccounts();if(p==='orders')return loadOrders();if(p==='offers')return loadGeneric('offers','offersTable',x=>`<td>${x.title}</td><td>${x.description||'-'}</td><td>${x.discount||0}%</td><td>${x.active?'نعم':'لا'}</td>`,'openOffer');if(p==='payments')return loadGeneric('payment_methods','paymentsTable',x=>`<td>${x.name}</td><td>${x.identifier||'-'}</td><td>${x.active?'نعم':'لا'}</td>`,'openPayment');if(p==='reviews')return loadGeneric('reviews','reviewsTable',x=>`<td>${x.customer_name||'-'}</td><td>⭐ ${x.rating||0}</td><td>${x.comment||'-'}</td><td>${x.approved?'منشور':'مخفي'}</td>`,'editReview');if(p==='members')return loadGeneric('memberships','membersTable',x=>`<td>${x.name}</td><td>${x.price||0} د.ل</td><td>${x.duration||'-'}</td><td>${x.active?'نعم':'لا'}</td>`,'openMember');if(p==='admins')return loadGeneric('admin_users','adminsTable',x=>`<td>${x.email||'-'}</td><td>${x.role||'-'}</td><td>${x.active?'نشط':'موقوف'}</td>`,'openAdmin');if(p==='settings')return loadAdvanced()}
+async function loadSite(){const {data}=await sb.from('site_settings').select('*').eq('id',1).single();if(!data)return;['store_name','tagline','hero_title','hero_description','whatsapp','primary_color','logo_url','hero_image_url','cta_text','accounts_cta','footer_text'].forEach(k=>$(k)&&( $(k).value=data[k]||''))}
+async function saveSite(){let obj={id:1};['store_name','tagline','hero_title','hero_description','whatsapp','primary_color','logo_url','hero_image_url','cta_text','accounts_cta','footer_text'].forEach(k=>obj[k]=$(k).value);const {error}=await sb.from('site_settings').upsert(obj);toast(error?error.message:'تم حفظ إعدادات الموقع')}
+async function loadAdvanced(){const {data}=await sb.from('site_settings').select('*').eq('id',1).single();if(data){$('meta_title').value=data.meta_title||'';$('copyright').value=data.copyright||'';$('maintenance_message').value=data.maintenance_message||''}}
+async function saveAdvanced(){const {error}=await sb.from('site_settings').update({meta_title:$('meta_title').value,copyright:$('copyright').value,maintenance_message:$('maintenance_message').value}).eq('id',1);toast(error?error.message:'تم الحفظ')}
+function modal(title,body){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modal').classList.add('open')}
+function closeModal(){$('modal').classList.remove('open')}
+function openGame(id){let g=cache.games.find(x=>x.id===id)||{};modal(id?'تعديل لعبة':'إضافة لعبة',`<div class="form-grid"><div class="field"><label>اسم اللعبة</label><input id="f_name" value="${g.name||''}"></div><div class="field"><label>Slug</label><input id="f_slug" value="${g.slug||''}"></div><div class="field full"><label>رابط الصورة</label><input id="f_image_url" value="${g.image_url||''}"></div><div class="field"><label>تظهر في الموقع</label><select id="f_visible"><option value="true" ${g.visible!==false?'selected':''}>نعم</option><option value="false" ${g.visible===false?'selected':''}>لا</option></select></div></div><div class="savebar"><button class="btn primary" onclick="saveGame('${id||''}')">حفظ</button></div>`)}
+async function saveGame(id){let o={name:$('f_name').value,slug:$('f_slug').value,image_url:$('f_image_url').value,visible:$('f_visible').value==='true'};let q=id?sb.from('games').update(o).eq('id',id):sb.from('games').insert(o);let {error}=await q;closeModal();toast(error?error.message:'تم الحفظ');loadGames()}
+function openPackage(id){let p=cache.packages.find(x=>x.id===id)||{};modal(id?'تعديل باقة':'إضافة باقة',`<div class="form-grid"><div class="field"><label>اللعبة</label><select id="f_game">${cache.games.map(g=>`<option value="${g.id}" ${p.game_id===g.id?'selected':''}>${g.name}</option>`).join('')}</select></div><div class="field"><label>اسم الباقة</label><input id="f_name" value="${p.name||''}"></div><div class="field"><label>القيمة</label><input id="f_amount" value="${p.amount||''}"></div><div class="field"><label>السعر بالدينار</label><input id="f_price" type="number" value="${p.price||0}"></div><div class="field full"><label>رابط الصورة</label><input id="f_image" value="${p.image_url||''}"></div></div><div class="savebar"><button class="btn primary" onclick="savePackage('${id||''}')">حفظ</button></div>`)}
+async function savePackage(id){let o={game_id:$('f_game').value,name:$('f_name').value,amount:$('f_amount').value,price:Number($('f_price').value),image_url:$('f_image').value};let {error}=id?await sb.from('packages').update(o).eq('id',id):await sb.from('packages').insert(o);closeModal();toast(error?error.message:'تم الحفظ');loadPackages()}
+function openAccount(id){let a=cache.accounts.find(x=>x.id===id)||{};modal(id?'تعديل حساب':'إضافة حساب',`<div class="form-grid"><div class="field"><label>اسم الحساب</label><input id="f_title" value="${a.title||''}"></div><div class="field"><label>اللعبة</label><input id="f_game" value="${a.game||''}"></div><div class="field"><label>السعر</label><input id="f_price" type="number" value="${a.price||0}"></div><div class="field"><label>الحالة</label><select id="f_status">${['approved','pending','rejected','sold','hidden'].map(s=>`<option ${a.status===s?'selected':''}>${s}</option>`).join('')}</select></div><div class="field"><label>مميز</label><select id="f_featured"><option value="true" ${a.featured?'selected':''}>نعم</option><option value="false" ${!a.featured?'selected':''}>لا</option></select></div><div class="field full"><label>روابط الصور (ضع كل رابط في سطر)</label><textarea id="f_images">${(a.images||[]).join('\\n')}</textarea></div><div class="field full"><label>الوصف</label><textarea id="f_desc">${a.description||''}</textarea></div></div><div class="savebar"><button class="btn primary" onclick="saveAccount('${id||''}')">حفظ</button></div>`)}
+async function saveAccount(id){let o={title:$('f_title').value,game:$('f_game').value,price:Number($('f_price').value),status:$('f_status').value,featured:$('f_featured').value==='true',images:$('f_images').value.split('\\n').map(x=>x.trim()).filter(Boolean),description:$('f_desc').value};let {error}=id?await sb.from('accounts').update(o).eq('id',id):await sb.from('accounts').insert(o);closeModal();toast(error?error.message:'تم الحفظ');loadAccounts()}
+function openOffer(id){let x=(cache.offers||[]).find(a=>a.id===id)||{};modal('العرض',`<div class="form-grid"><div class="field"><label>العنوان</label><input id="f_title" value="${x.title||''}"></div><div class="field"><label>الخصم %</label><input id="f_discount" type="number" value="${x.discount||0}"></div><div class="field full"><label>الوصف</label><textarea id="f_description">${x.description||''}</textarea></div><div class="field"><label>نشط</label><select id="f_active"><option value="true" ${x.active!==false?'selected':''}>نعم</option><option value="false" ${x.active===false?'selected':''}>لا</option></select></div></div><div class="savebar"><button class="btn primary" onclick="saveGeneric('offers','${id||''}',{title:$('f_title').value,discount:Number($('f_discount').value),description:$('f_description').value,active:$('f_active').value==='true'})">حفظ</button></div>`)}
+function openPayment(id){let x=(cache.payment_methods||[]).find(a=>a.id===id)||{};modal('طريقة الدفع',`<div class="form-grid"><div class="field"><label>الاسم</label><input id="f_name" value="${x.name||''}"></div><div class="field"><label>الرقم/المعرف</label><input id="f_identifier" value="${x.identifier||''}"></div><div class="field"><label>نشطة</label><select id="f_active"><option value="true" ${x.active!==false?'selected':''}>نعم</option><option value="false" ${x.active===false?'selected':''}>لا</option></select></div></div><div class="savebar"><button class="btn primary" onclick="saveGeneric('payment_methods','${id||''}',{name:$('f_name').value,identifier:$('f_identifier').value,active:$('f_active').value==='true'})">حفظ</button></div>`)}
+function openMember(id){let x=(cache.memberships||[]).find(a=>a.id===id)||{};modal('عضوية',`<div class="form-grid"><div class="field"><label>الاسم</label><input id="f_name" value="${x.name||''}"></div><div class="field"><label>السعر</label><input id="f_price" type="number" value="${x.price||0}"></div><div class="field"><label>المدة</label><input id="f_duration" value="${x.duration||''}"></div><div class="field"><label>نشطة</label><select id="f_active"><option value="true" ${x.active!==false?'selected':''}>نعم</option><option value="false" ${x.active===false?'selected':''}>لا</option></select></div></div><div class="savebar"><button class="btn primary" onclick="saveGeneric('memberships','${id||''}',{name:$('f_name').value,price:Number($('f_price').value),duration:$('f_duration').value,active:$('f_active').value==='true'})">حفظ</button></div>`)}
+function openAdmin(id){let x=(cache.admin_users||[]).find(a=>a.id===id)||{};modal('صلاحيات المشرف',`<div class="form-grid"><div class="field"><label>البريد</label><input id="f_email" value="${x.email||''}" ${id?'readonly':''}></div><div class="field"><label>الدور</label><select id="f_role"><option ${x.role==='owner'?'selected':''}>owner</option><option ${x.role==='admin'?'selected':''}>admin</option><option ${x.role==='moderator'?'selected':''}>moderator</option></select></div><div class="field"><label>الحالة</label><select id="f_active"><option value="true" ${x.active!==false?'selected':''}>نشط</option><option value="false" ${x.active===false?'selected':''}>موقوف</option></select></div></div><div class="savebar"><button class="btn primary" onclick="saveGeneric('admin_users','${id||''}',{email:$('f_email').value,role:$('f_role').value,active:$('f_active').value==='true'})">حفظ</button></div>`)}
+function editReview(id){let x=(cache.reviews||[]).find(a=>a.id===id)||{};modal('التقييم',`<div class="field"><label>منشور؟</label><select id="f_approved"><option value="true" ${x.approved?'selected':''}>نعم</option><option value="false" ${!x.approved?'selected':''}>لا</option></select></div><div class="savebar"><button class="btn primary" onclick="saveGeneric('reviews','${id}',{approved:$('f_approved').value==='true'})">حفظ</button></div>`)}
+async function saveGeneric(table,id,obj){let r=id?await sb.from(table).update(obj).eq('id',id):await sb.from(table).insert(obj);closeModal();toast(r.error?r.error.message:'تم الحفظ');loadPage(document.querySelector('.section.active').id)}
+async function editOrder(id){let o=cache.orders.find(x=>x.id===id)||{};modal('تحديث حالة الطلب',`<div class="field"><label>الحالة</label><select id="f_status">${['pending','reviewing','paid','processing','completed','cancelled'].map(s=>`<option ${o.status===s?'selected':''}>${s}</option>`).join('')}</select></div><div class="savebar"><button class="btn primary" onclick="saveOrder('${id}')">حفظ</button></div>`)}
+async function saveOrder(id){let {error}=await sb.from('orders').update({status:$('f_status').value}).eq('id',id);closeModal();toast(error?error.message:'تم تحديث الطلب');loadOrders()}
+async function del(table,id){if(!confirm('هل أنت متأكد من الحذف؟'))return;let {error}=await sb.from(table).delete().eq('id',id);toast(error?error.message:'تم الحذف');loadPage(document.querySelector('.section.active').id)}
+(async()=>{if(await ensureAdmin())loadDashboard()})();
+</script>
+</body>
+</html>
